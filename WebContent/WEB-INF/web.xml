@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>CommunityBlogProject</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>CommunityBlogProject</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>signinServlet</servlet-name>
+		<servlet-class>com.communityblogproject.SigninServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signinServlet</servlet-name>
+		<url-pattern>/signinServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>signupServlet</servlet-name>
+		<servlet-class>com.communityblogproject.SignupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signupServlet</servlet-name>
+		<url-pattern>/signupServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>homeURL</servlet-name>
+		<jsp-file>/index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>homeURL</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>signupURL</servlet-name>
+		<jsp-file>/signup.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signupURL</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
 </web-app>
