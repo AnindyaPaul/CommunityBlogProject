@@ -12,7 +12,8 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Inside signup servlet.");
-		System.out.println(request.getParameter("username"));
+		System.out.println(request.getParameter("name"));
+		System.out.println(request.getParameter("dob"));
 		System.out.println(request.getParameter("email"));
 		System.out.println(request.getParameter("password"));
 		response.sendRedirect("home");

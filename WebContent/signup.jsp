@@ -1,82 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html>
 
-<head>
-<title>Home</title>
-<meta name="description" content="">
+<html lang="en">
 
-<%@ include file="headInclude.jsp"%>
-</head>
-
-<body>
-	<%@ include file="navbarInclude.jsp"%>
-
-	<section class="title">
-		<div class="container">
-			<div class="row-fluid">
-				<div class="span6">
-					<h1>Sign up!</h1>
-				</div>
-			</div>
+	<head>
+		<%@ include file="includeHead.jsp" %>
+	    
+	    <!-- Title of the page -->
+		<title>Sign up!</title>
+	</head>
+	
+	<body>
+	
+		<%@ include file="includeNav.jsp" %>
+		
+		<div class="col-sm-12">
+			<h1 class="text-center" id="id-signup-title">Create your account!</h1>
 		</div>
-	</section>
-	<!-- / .title -->
-
-
-	<section id="registration-page" class="container">
-		<form class="center" action="signupServlet" method="POST">
-			<fieldset class="registration-form">
-				<div class="control-group">
-					<!-- Username -->
-					<div class="controls">
-						<input type="text" id="username" name="username"
-							placeholder="Username" class="input-xlarge">
+		
+		<div class="col-md-offset-3 col-sm-6 well">
+			<form class="form-horizontal" action="signupServlet" method="post">
+				
+				<!-- Name -->
+				<div class="form-group">
+					<label for="id-signup-name" class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="id-signup-name"
+							placeholder="Name" name="name" />
+					</div>
+				</div>
+	    		
+	    		<!-- DOB -->
+				<div class="form-group">
+					<label for="id-signup-dob" class="col-sm-2 control-label">DOB</label>
+					<div class="col-sm-10">
+						<div class="input-group date" id="id-date-time-picker">
+							<input type="text" class="form-control" id="id-signup-dob"
+								placeholder="DD MM YYYY" name="dob" />
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
 					</div>
 				</div>
 				
-				<div class="control-group">
-					<!-- DOB -->
-					<div class="controls">
-						<input type="date" id="dob" name="dob"
-							placeholder="Date of Birth (YYYY-MM-DD)" class="input-xlarge">
+				<!-- Email -->
+				<div class="form-group">
+					<label for="id-signup-email" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="id-signup-email"
+							placeholder="Email" name="email" />
 					</div>
 				</div>
-
-				<div class="control-group">
-					<!-- E-mail -->
-					<div class="controls">
-						<input type="text" id="email" name="email" placeholder="E-mail"
-							class="input-xlarge">
+				
+				<!-- Password -->
+				<div class="form-group">
+					<label for="id-signup-password" class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="id-signup-password"
+							placeholder="Password" name="password" />
 					</div>
 				</div>
-
-				<div class="control-group">
-					<!-- Password-->
-					<div class="controls">
-						<input type="password" id="password" name="password"
-							placeholder="Password" class="input-xlarge">
+				
+				<!-- Button -->
+				<div class="form-group" id="id-signup-button">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Sign up!</button>
 					</div>
 				</div>
+			</form>
+		</div>
+		
+		<!-- Bootstrap JavaSrcipt resources -->
+		<script src="js/jQuery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/moment.js"></script>
+		<script src="js/bootstrap-datetimepicker.min.js"></script>
+		
+		<script type="text/javascript">
+            $(function () {
+                $('#id-date-time-picker').datetimepicker({
+                	format: 'DD MM YYYY',
+                	maxDate: moment()
+                });
+            });
+        </script>
+	
+	</body>
 
-				<div class="control-group">
-					<!-- Button -->
-					<div class="controls">
-						<button class="btn btn-success btn-large btn-block">Sign up!</button>
-					</div>
-				</div>
-			</fieldset>
-		</form>
-	</section>
-	<!-- /#registration-page -->
-
-	<%@ include file="footerInclude.jsp"%>
-
-	<script src="js/vendor/jquery-1.9.1.min.js"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
-
-</body>
 </html>
