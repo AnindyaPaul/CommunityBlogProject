@@ -2,6 +2,8 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A community blog website" />
+<meta name="author" content="Anindya Sundar Paul, Zahin Jawad, Towhidul Islam" />
 
 <!-- Bootstrap resources -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -13,6 +15,6 @@
 <![endif]-->
 
 <!-- Styles -->
-<link href="css/styles.css" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700'
 	rel='stylesheet' type='text/css'>
+<link href="css/styles.css" rel="stylesheet" />
