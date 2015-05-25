@@ -6,10 +6,10 @@
 <html lang="en">
 
 <head>
-<%@ include file="includeHead.jsp"%>
-
-<!-- Title of the page -->
-<title>Community Blog</title>
+	<%@ include file="includeHead.jsp"%>
+	
+	<!-- Title of the page -->
+	<title>Community Blog</title>
 </head>
 
 <body>

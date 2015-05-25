@@ -17,7 +17,6 @@ public class SigninServlet extends HttpServlet {
 		
 		System.out.println(email);
 		System.out.println(password);
-		
 		response.sendRedirect("home");
 	}
 }
