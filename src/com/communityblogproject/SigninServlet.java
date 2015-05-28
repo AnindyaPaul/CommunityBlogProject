@@ -18,8 +18,10 @@ public class SigninServlet extends HttpServlet {
 		{
 			System.out.println("Matched");
 		}
+		System.out.println(data.countRow("user"));
 		System.out.println(email);
 		System.out.println(password);
 		response.sendRedirect("home");
+		data.close();
 	}
 }
