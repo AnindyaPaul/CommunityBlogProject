@@ -17,6 +17,8 @@
 		<div class="collapse navbar-collapse" id="id-navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="home" class="active">Blog</a></li>
+				<li><a href="profile">Profile</a></li>
+				<li><a href="newpost">New Post</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>
 			</ul>
 		</div>

@@ -50,6 +50,24 @@
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>profileURL</servlet-name>
+		<jsp-file>/profile.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profileURL</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>newPostURL</servlet-name>
+		<jsp-file>/newPost.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newPostURL</servlet-name>
+		<url-pattern>/newpost</url-pattern>
+	</servlet-mapping>
+	
 	<!-- TinyFCK integration -->
 	<servlet>
 	    <servlet-name>Connector</servlet-name>
