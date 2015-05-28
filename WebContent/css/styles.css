@@ -11,7 +11,24 @@ body {
 	margin-top: 10%;
 }
 
+.profile-info {
+	font-size: medium;
+}
+
+.profile-picture {
+	border-radius: 10px;
+}
+
+.profile-element {
+	margin-bottom: 3%;
+}
+
 #id-signup-title {
+	margin: 3%;
+	margin-top: 3%;
+}
+
+#id-profile-title {
 	margin: 3%;
 	margin-top: 3%;
 }

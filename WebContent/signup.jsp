@@ -20,7 +20,7 @@
 			<h1 class="text-center" id="id-signup-title">Create your account!</h1>
 		</div>
 		
-		<div class="col-md-offset-3 col-sm-6 well">
+		<div class="col-sm-offset-3 col-sm-6 well">
 			<form class="form-horizontal" action="signupServlet" method="post">
 				
 				<!-- Name -->
