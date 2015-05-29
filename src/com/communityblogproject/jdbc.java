@@ -335,6 +335,114 @@ public class jdbc {
 			return ret;
 		}
 	}
+	public ArrayList<User> getUsersFollowing(String value)
+	{
+		ArrayList<User> ret=new ArrayList<User>();
+		try{
+			ArrayList<String>requiredId=query("follow","userID","followingID",value);
+			int i;
+			for(i=0;i<requiredId.size();i++)
+			{
+				sql="SELECT * from user where UserID=\'"+requiredId.get(i)+"\'";
+				statement=connect.createStatement();
+				result=statement.executeQuery(sql);
+				while(result.next()){
+					User temp=new User();
+					temp.setUserId(result.getString(1));
+					temp.setUserName(result.getString(2));
+					value=result.getString(3);
+					String date="";
+					String dd=value.substring(8,10);
+					String mm=value.substring(5,7);
+					String yy=value.substring(0,4);
+					date+=(dd+"-"+mm+"-"+yy);
+					temp.setUserDOB(date);
+					temp.setUserBio(result.getString(4));
+					temp.setUserReputation(result.getString(5));
+					temp.setUserPassword(result.getString(6));
+					temp.setUserRole(result.getString(7));
+					temp.setUserEmail(result.getString(9));
+					ret.add(temp);
+				}
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
+	public ArrayList<User> getFollowers(String value)
+	{
+		ArrayList<User> ret=new ArrayList<User>();
+		try{
+			ArrayList<String>requiredId=query("follow","userID","followingID",value);
+			int i;
+			for(i=0;i<requiredId.size();i++)
+			{
+				sql="SELECT * from user where UserID=\'"+requiredId.get(i)+"\'";
+				statement=connect.createStatement();
+				result=statement.executeQuery(sql);
+				while(result.next()){
+					User temp=new User();
+					temp.setUserId(result.getString(1));
+					temp.setUserName(result.getString(2));
+					value=result.getString(3);
+					String date="";
+					String dd=value.substring(8,10);
+					String mm=value.substring(5,7);
+					String yy=value.substring(0,4);
+					date+=(dd+"-"+mm+"-"+yy);
+					temp.setUserDOB(date);
+					temp.setUserBio(result.getString(4));
+					temp.setUserReputation(result.getString(5));
+					temp.setUserPassword(result.getString(6));
+					temp.setUserRole(result.getString(7));
+					temp.setUserEmail(result.getString(9));
+					ret.add(temp);
+				}
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
+	public ArrayList<User> getFollowing(String value)
+	{
+		ArrayList<User> ret=new ArrayList<User>();
+		try{
+			ArrayList<String>requiredId=query("follow","followingID","userID",value);
+			int i;
+			for(i=0;i<requiredId.size();i++)
+			{
+				sql="SELECT * from user where UserID=\'"+requiredId.get(i)+"\'";
+				statement=connect.createStatement();
+				result=statement.executeQuery(sql);
+				while(result.next()){
+					User temp=new User();
+					temp.setUserId(result.getString(1));
+					temp.setUserName(result.getString(2));
+					value=result.getString(3);
+					String date="";
+					String dd=value.substring(8,10);
+					String mm=value.substring(5,7);
+					String yy=value.substring(0,4);
+					date+=(dd+"-"+mm+"-"+yy);
+					temp.setUserDOB(date);
+					temp.setUserBio(result.getString(4));
+					temp.setUserReputation(result.getString(5));
+					temp.setUserPassword(result.getString(6));
+					temp.setUserRole(result.getString(7));
+					temp.setUserEmail(result.getString(9));
+					ret.add(temp);
+				}
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
 	public void close() {
 	    try {
 	      if (result != null) {
