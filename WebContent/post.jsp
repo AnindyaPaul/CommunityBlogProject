@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.communityblogproject.*" %>
+
+<%
+	jdbc jdbcObj = new jdbc();
+	Post post = jdbcObj.getPostById(request.getParameter("postID"));
+	User author = jdbcObj.getUserbyId(post.getAuthorId());
+%>
 
 <!DOCTYPE html>
 
@@ -20,32 +26,13 @@
 		<div class="row">
 			<div class="col-sm-8 blog-main">
 				<div class="blog-post text-justify">
-					<h2 class="blog-post-title">Sample blog post</h2>
+					<h2 class="blog-post-title"><%= post.getTitle() %></h2>
 					<p class="blog-post-meta">
-						January 1, 2014 by <a href="#">Mark</a>
-						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> 5
-						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> 2
+						<%= post.getDate() %> by <a href="profile?userID=<%= author.getUserId() %>"><%= author.getUserName() %></a>
+						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> <%= post.getUpvote() %>
+						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> <%= post.getDownvote() %>
 					</p>
-					<img src="http://placekitten.com/1000/400" class="img-responsive"></img>
-					<p class="lead">
-						Cum sociis natoque penatibus et magnis <a href="#">dis
-						parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam.
-						Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed
-						posuere consectetur est at lobortis. Cras mattis consectetur purus
-						sit amet fermentum.
-					</p>
-					<blockquote>
-						<p>
-							Curabitur blandit tempus porttitor. <strong>Nullam quis
-							risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id
-							nibh ultricies vehicula ut id elit.
-						</p>
-					</blockquote>
-					<p>
-						Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
-						mattis consectetur purus sit amet fermentum. Aenean lacinia
-						bibendum nulla sed consectetur.
-					</p>
+					<%= post.getText() %>
 				</div>
 				<!-- /.blog-post -->
 				

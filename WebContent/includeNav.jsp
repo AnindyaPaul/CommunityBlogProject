@@ -37,11 +37,10 @@
 				</li>
 				<% if(loggedInUser != null) { %>
 				<li><a href="profile?userID=<%= loggedInUser.getUserId() %>"><%= loggedInUser.getUserName() %></a></li>
-				<% } %>
-				<% if(loggedInUser == null) { %>
-				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>
-				<% } else { %>
+				<li><a href="newpost">New post</a></li>
 				<li><a href="signoutServlet">Sign out</a></li>
+				<% } else { %>
+				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>
 				<% } %>
 			</ul>
 		</div>
