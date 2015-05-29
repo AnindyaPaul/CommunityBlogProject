@@ -41,7 +41,6 @@
     <servlet-name>pushPostServlet</servlet-name>
     <url-pattern>/pushPostServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>homeURL</servlet-name>
     <jsp-file>/index.jsp</jsp-file>
@@ -90,9 +89,6 @@
     <servlet-name>commentServlet</servlet-name>
     <url-pattern>/commentServlet</url-pattern>
   </servlet-mapping>
-  
-  
-  
   <servlet>
     <servlet-name>Connector</servlet-name>
     <servlet-class>com.fredck.FCKeditor.connector.ConnectorServlet</servlet-class>
