@@ -36,6 +36,16 @@ public class jdbc {
 		System.out.println(e);
 		}
 	}
+	public void newFollowRow(String value1,String value2)
+	{
+		try{
+			sql="INSERT INTO follow (userID, followingID) VALUES (\'"+value1+"\',\'"+value2+"\')";
+			statement=connect.createStatement();
+			statement.executeUpdate(sql);
+			}catch(Exception e){
+			System.out.println(e);
+			}
+	}
 	public void setValue(String table,String p_key,String p_key_val,String attribute,String value)
 	{
 		try{

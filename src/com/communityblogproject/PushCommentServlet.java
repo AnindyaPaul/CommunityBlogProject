@@ -29,7 +29,7 @@ public class PushCommentServlet extends HttpServlet {
 		data.newRow("comment", "commentID",""+new_id);
 		data.setValue("comment","commentID",""+new_id,"commentAuthorID",authorID);
 		data.setValue("comment","commentID",""+new_id,"commentContent",commentContent);
-		data.setValue("comment","commentID",""+new_id,"commenttDate",currentDate);
+		data.setValue("comment","commentID",""+new_id,"commentDate",currentDate);
 		data.setValue("comment","commentID",""+new_id,"commentUpVote",commentUpvote);
 		data.setValue("comment","commentID",""+new_id,"commentDownVote",commentDownvote);
 		data.setValue("comment","commentID",""+new_id,"commentPostID",postID);
