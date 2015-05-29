@@ -34,6 +34,7 @@ public class PushCommentServlet extends HttpServlet {
 		data.setValue("comment","commentID",""+new_id,"commentDownVote",commentDownvote);
 		data.setValue("comment","commentID",""+new_id,"commentPostID",postID);
 		data.close();
+		response.sendRedirect("home");
 	}
 
 }

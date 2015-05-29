@@ -39,6 +39,7 @@ public class PushPostServlet extends HttpServlet {
 		data.setValue("post","postID",""+new_id,"postViewCount",postView);
 		data.setValue("post","postID",""+new_id,"postAuthor",authorID);
 		data.close();
+		response.sendRedirect("home");
 	}
 
 }
