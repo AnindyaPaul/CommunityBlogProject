@@ -41,6 +41,14 @@
     <servlet-name>pushPostServlet</servlet-name>
     <url-pattern>/pushPostServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>pushCommentServlet</servlet-name>
+    <servlet-class>com.communityblogproject.PushCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pushCommentServlet</servlet-name>
+    <url-pattern>/pushCommentServlet</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>homeURL</servlet-name>
