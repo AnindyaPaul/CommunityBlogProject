@@ -32,7 +32,7 @@ public class SignupServlet extends HttpServlet {
 		user.setUserName(UserName);
 		user.setUserEmail(UserEmail);
 		user.setUserPassword(UserPassword);
-		request.setAttribute("User", user);
+		request.getSession().setAttribute("User", user);
 		data.close();
 		response.sendRedirect("home");
 	}

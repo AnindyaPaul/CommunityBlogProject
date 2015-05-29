@@ -3,7 +3,13 @@ package com.communityblogproject;
 import java.io.File;
 
 public class User {
-	String UserName,UserEmail,UserPassword,UserDOB,UserBio,UserReputation,UserRole;
+	String UserId,UserName,UserEmail,UserPassword,UserDOB,UserBio,UserReputation,UserRole;
+	public String getUserId() {
+		return UserId;
+	}
+	public void setUserId(String userId) {
+		UserId = userId;
+	}
 	File UserProfilePicture;
 	User(){
 		

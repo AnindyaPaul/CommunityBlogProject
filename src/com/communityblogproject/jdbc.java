@@ -4,14 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class jdbc {
 	private Connection connect=null;
 	private Statement statement=null;
 	private ResultSet result=null;
-	private String DB_URL="jdbc:mysql://localhost/communityblog";
-	private String user="root";
-	private String password="1234";
+	private String DB_URL="jdbc:mysql://localhost/cbdb";
+	private String user="CBProject";
+	private String password="12345";
 	private String driver="com.mysql.jdbc.Driver";
 	private String sql=null;
 	
@@ -69,14 +70,26 @@ public class jdbc {
 			return ret;
 		}
 	}
-	String query(String table,String required_attribute,String match_attribute,String value){
-		String ret="";
+	ArrayList<String> query(String table,String required_attribute,String match_attribute,String value){
+		ArrayList<String>ret=new ArrayList<String>();
 		try{
 		sql="SELECT "+required_attribute+" from "+table+" where "+match_attribute+" =\'"+value+"\'";
 		statement=connect.createStatement();
 		result=statement.executeQuery(sql);
-		if(result.next()==true){
-			ret=result.getString(required_attribute);
+		int i=1;
+		if(required_attribute.equals("*")==true)
+		{
+				if(result.next()){
+				{
+					//System.out.println(result.getString(i+1));
+					while(i<=9)
+					ret.add((String)result.getString(i++));
+					//System.out.println("Index "+i);
+				}
+			}
+		}
+		else if(result.next()==true){
+			ret.add((String)result.getString(required_attribute));
 		}
 		}catch(Exception e){
 		System.out.println(e);
