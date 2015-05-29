@@ -10,7 +10,7 @@ public class jdbc {
 	private Connection connect=null;
 	private Statement statement=null;
 	private ResultSet result=null;
-	private String DB_URL="jdbc:mysql://localhost/CDBC";
+	private String DB_URL="jdbc:mysql://localhost/CBDB";
 	private String user="CBProject";
 	private String password="12345";
 	private String driver="com.mysql.jdbc.Driver";
