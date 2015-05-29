@@ -28,14 +28,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 blog-main">
-				<div class="blog-post text-justify">
+				<div class="blog-post">
 				<%
 				for(int i = 0; i < postList.size(); i++) {
 					Post post = postList.get(i);
+					User author = jdbcObj.getUserbyId(post.getAuthorId());
 				%>
 					<h2 class="blog-post-title"><a href="post?postID=<%= post.getId() %>"><%= post.getTitle() %></a></h2>
 					<p class="blog-post-meta">
-						<%= post.getDate() %> by <a href="#"><%= post.getAuthorId() %></a>
+						<%= post.getDate() %> by <a href="profile?userID=<%= author.getUserId() %>"><%= author.getUserName() %></a>
 						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> <%= post.getUpvote() %>
 						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> <%= post.getDownvote() %>
 					</p>

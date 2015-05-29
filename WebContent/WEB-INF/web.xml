@@ -34,6 +34,15 @@
     <url-pattern>/signoutServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>pushPostServlet</servlet-name>
+    <servlet-class>com.communityblogproject.PushPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pushPostServlet</servlet-name>
+    <url-pattern>/pushPostServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>homeURL</servlet-name>
     <jsp-file>/index.jsp</jsp-file>
   </servlet>
