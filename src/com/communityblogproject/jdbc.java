@@ -97,6 +97,33 @@ public class jdbc {
 			return ret;
 		}
 	}
+	ArrayList<Post> getPost()
+	{
+		ArrayList<Post> ret=new ArrayList<Post>();
+		try{
+			sql="SELECT * from post";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			while(result.next()){
+				Post temp=new Post();
+				temp.setId(result.getString(1));
+				temp.setTitle(result.getString(2));
+				temp.setText(result.getString(3));
+				temp.setAuthorId(result.getString(4));
+				//temp.setId(result.getString(5));
+				temp.setUpvote(Integer.parseInt(result.getString(6)));
+				temp.setDownvote(Integer.parseInt(result.getString(7)));
+				temp.setViews(Integer.parseInt(result.getString(8)));
+				ret.add(temp);
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+				
+			
+	}
 	public void close() {
 	    try {
 	      if (result != null) {

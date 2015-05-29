@@ -1,17 +1,22 @@
 package com.communityblogproject;
 
 public abstract class Content {
-	int id,title;
-	public int getId() {
+	String id,title;
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
-	public int getTitle() {
+
+	public String getTitle() {
 		return title;
 	}
-	public void setTitle(int title) {
+
+	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 }
