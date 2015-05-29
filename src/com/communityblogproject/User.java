@@ -11,7 +11,7 @@ public class User {
 		UserId = userId;
 	}
 	File UserProfilePicture;
-	User(){
+	public User(){
 		
 	}
 	public String getUserName() {
