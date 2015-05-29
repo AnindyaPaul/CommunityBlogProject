@@ -24,6 +24,8 @@
 					<h2 class="blog-post-title">Sample blog post</h2>
 					<p class="blog-post-meta">
 						January 1, 2014 by <a href="#">Mark</a>
+						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> 5
+						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> 2
 					</p>
 					<img src="http://placekitten.com/1000/400" class="img-responsive"></img>
 					<p class="lead">
@@ -152,12 +154,12 @@
 						<li><a href="#">Youtube</a></li>
 					</ol>
 				</div>
-			</div><!-- /.blog-sidebar -->
-			
+			</div>
+			<!-- /.blog-sidebar -->
 		</div>
 		<!-- /.row -->
 	</div>
-	<!-- /Recent blog posts -->
+	<!-- ./container -->
 
 	<%@ include file="includeFooter.jsp" %>
 

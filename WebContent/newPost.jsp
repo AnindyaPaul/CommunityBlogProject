@@ -95,6 +95,8 @@
 		</div>
 	</div>
 	
+	<%@ include file="includeFooter.jsp" %>
+	
 	<!-- Bootstrap JavaSrcipt resources -->
 	<script src="js/jQuery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

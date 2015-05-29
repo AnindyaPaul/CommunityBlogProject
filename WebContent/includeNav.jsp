@@ -30,6 +30,7 @@
 				<li><a href="profile">Profile</a></li>
 				<li><a href="newpost">New Post</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>
+				<li><a href="signoutServlet">Sign out</a></li>
 			</ul>
 		</div>
 	</div>

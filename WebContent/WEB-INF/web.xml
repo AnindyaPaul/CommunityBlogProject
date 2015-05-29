@@ -25,6 +25,16 @@
     <servlet-name>signupServlet</servlet-name>
     <url-pattern>/signupServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>signoutServlet</servlet-name>
+    <servlet-class>com.communityblogproject.SignOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signoutServlet</servlet-name>
+    <url-pattern>/signoutServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>homeURL</servlet-name>
     <jsp-file>/index.jsp</jsp-file>

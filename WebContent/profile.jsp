@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.communityblogproject.*"%>
 
 <!DOCTYPE html>
 
@@ -26,8 +26,8 @@
 				
 				<div class="col-sm-7 profile-info">
 					<div class="row profile-element">
-						<label for="id-user-name" class="col-sm-3 text-right">Name</label>
-						<div class="col-sm-9 text-left" id="id-user-name">User's Full Name</div>
+						<label for="id-user-name" class="col-sm-3 text-right">Name</label> 
+						<div class="col-sm-9 text-left" id="id-user-name"><% User user = (User) session.getAttribute("User"); if(user != null) out.print(user.getUserName()); %></div>
 					</div>
 					<div class="row profile-element">
 						<label for="id-user-email" class="col-sm-3 text-right">Email</label>
@@ -61,6 +61,8 @@
 			
 		</div>
 	</div>
+	
+	<%@ include file="includeFooter.jsp" %>
 
 	<!-- Bootstrap JavaSrcipt resources -->
 	<script src="js/jQuery.min.js"></script>
