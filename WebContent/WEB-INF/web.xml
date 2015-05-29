@@ -76,6 +76,17 @@
     <url-pattern>/post</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>commentServlet</servlet-name>
+    <servlet-class>com.communityblogproject.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>commentServlet</servlet-name>
+    <url-pattern>/commentServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
     <servlet-name>Connector</servlet-name>
     <servlet-class>com.fredck.FCKeditor.connector.ConnectorServlet</servlet-class>
     <init-param>
