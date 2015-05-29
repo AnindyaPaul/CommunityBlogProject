@@ -27,6 +27,11 @@ public class SignupServlet extends HttpServlet {
 		data.setValue("user","UserId",""+new_id,"UserName",UserName);
 		data.setValue("user","UserId",""+new_id,"UserEmail",UserEmail);
 		data.setValue("user","UserId",""+new_id,"UserPassword",UserPassword);
+		User user=new User();
+		user.setUserName(UserName);
+		user.setUserEmail(UserEmail);
+		user.setUserPassword(UserPassword);
+		request.setAttribute("User", user);
 		data.close();
 		response.sendRedirect("home");
 	}
