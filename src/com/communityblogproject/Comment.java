@@ -1,7 +1,8 @@
 package com.communityblogproject;
 
 public class Comment extends Content{
-	String authorId,text,postId,upvote,downvote,date;
+	String authorId,text,postId,date;
+	int upvote,downvote;
 	public String getAuthorId() {
 		return authorId;
 	}
@@ -26,19 +27,19 @@ public class Comment extends Content{
 		this.postId = postId;
 	}
 
-	public String getUpvote() {
+	public int getUpvote() {
 		return upvote;
 	}
 
-	public void setUpvote(String upvote) {
+	public void setUpvote(int upvote) {
 		this.upvote = upvote;
 	}
 
-	public String getDownvote() {
+	public int getDownvote() {
 		return downvote;
 	}
 
-	public void setDownvote(String downvote) {
+	public void setDownvote(int downvote) {
 		this.downvote = downvote;
 	}
 

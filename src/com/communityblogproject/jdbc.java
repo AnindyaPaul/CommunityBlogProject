@@ -295,6 +295,36 @@ public class jdbc {
 			return ret;
 		}
 	}
+	public ArrayList<Comment> getAllComment(String value)
+	{
+		ArrayList<Comment> ret=new ArrayList<Comment>();
+		try{
+			sql="SELECT * from comment where commentPostId=\'"+value+"\'";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			while(result.next()){
+				Comment temp=new Comment();
+				temp.setId(result.getString(1));
+				temp.setAuthorId(result.getString(2));
+				temp.setText(result.getString(3));
+				temp.setPostId(result.getString(6));
+				value=result.getString(4);
+				String date="";
+				String dd=value.substring(8,10);
+				String mm=value.substring(5,7);
+				String yy=value.substring(0,4);
+				date+=(dd+"-"+mm+"-"+yy);
+				temp.setDate(date);
+				temp.setUpvote(Integer.parseInt(result.getString(6)));
+				temp.setDownvote(Integer.parseInt(result.getString(7)));
+				ret.add(temp);
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
 	public void close() {
 	    try {
 	      if (result != null) {
