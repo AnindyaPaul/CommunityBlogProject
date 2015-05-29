@@ -231,14 +231,14 @@ public class jdbc {
 			return ret;
 		}
 	}
-	public ArrayList<Post> getPostById(String value)
+	public Post getPostById(String value)
 	{
-		ArrayList<Post> ret=new ArrayList<Post>();
+		Post ret=new Post();
 		try{
 			sql="SELECT * from post where postID=\'"+value+"\'";
 			statement=connect.createStatement();
 			result=statement.executeQuery(sql);
-			while(result.next()){
+			if(result.next()){
 				Post temp=new Post();
 				temp.setId(result.getString(1));
 				temp.setTitle(result.getString(2));
@@ -253,7 +253,7 @@ public class jdbc {
 				temp.setUpvote(Integer.parseInt(result.getString(6)));
 				temp.setDownvote(Integer.parseInt(result.getString(7)));
 				temp.setViews(Integer.parseInt(result.getString(8)));
-				ret.add(temp);
+				ret=temp;
 			}
 		}catch(Exception e){
 		System.out.println(e);
