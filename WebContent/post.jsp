@@ -66,6 +66,17 @@
 					</p>
 					Great article brother!
 				</div>
+				
+				<div class="comment comment-form">
+					<form class="form-horizontal" action="commentServlet" method="post">
+						<div class="form-group comment-form">
+							<input type="text" class="form-control" placeholder="Enter your comment" name="comment" />
+						</div>
+						<div class="form-group comment-form">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
 				<!-- /Comments section -->
 				
 			</div>

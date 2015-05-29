@@ -1,5 +1,5 @@
 package com.communityblogproject;
-import java.util.*;
+
 public class Post extends Content{
 	String authorId,date;
 	int views,upvote,downvote;

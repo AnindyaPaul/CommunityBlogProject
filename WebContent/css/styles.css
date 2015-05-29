@@ -30,6 +30,10 @@ body {
 	margin-top: 1%;
 }
 
+.comment-form {
+	padding-left: 2%;
+}
+
 .profile-info {
 	font-size: medium;
 }

@@ -1,3 +1,11 @@
+<%@ page import="com.communityblogproject.*" %>
+
+<%
+
+	User loggedInUser = (User) session.getAttribute("User");
+
+%>
+
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default">
 	<div class="container">
@@ -16,7 +24,7 @@
 		<!-- Contents of the navigation bar -->
 		<div class="collapse navbar-collapse" id="id-navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="home" class="active">Blog</a></li>
+				<li><a href="home">Blog</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
 					aria-expanded="false">Category <span class="caret"></span></a>
@@ -27,10 +35,14 @@
 						<li><a href="#">Sports</a></li>
 					</ul>
 				</li>
-				<li><a href="profile">Profile</a></li>
-				<li><a href="newpost">New Post</a></li>
+				<% if(loggedInUser != null) { %>
+				<li><a href="profile?userID=<%= loggedInUser.getUserId() %>"><%= loggedInUser.getUserName() %></a></li>
+				<% } %>
+				<% if(loggedInUser == null) { %>
 				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>
+				<% } else { %>
 				<li><a href="signoutServlet">Sign out</a></li>
+				<% } %>
 			</ul>
 		</div>
 	</div>
