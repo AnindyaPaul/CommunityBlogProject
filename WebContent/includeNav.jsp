@@ -17,6 +17,16 @@
 		<div class="collapse navbar-collapse" id="id-navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="home" class="active">Blog</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+					aria-expanded="false">Category <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">World</a></li>
+						<li><a href="#">Science</a></li>
+						<li><a href="#">Technology</a></li>
+						<li><a href="#">Sports</a></li>
+					</ul>
+				</li>
 				<li><a href="profile">Profile</a></li>
 				<li><a href="newpost">New Post</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>

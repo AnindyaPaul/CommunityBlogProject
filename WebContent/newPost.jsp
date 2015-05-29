@@ -9,7 +9,7 @@
 	<%@ include file="includeHead.jsp"%>
 	
 	<!-- Title of the page -->
-	<title>Community Blog</title>
+	<title>New post</title>
 	
 	<!-- TinyFCK integration -->
 	<script type="text/javascript" src="tinyfck/tiny_mce.js"></script>
@@ -75,10 +75,25 @@
 
 	<%@ include file="includeNav.jsp"%>
 	
-	<form method="post">
-		<textarea id="id-editor" name="editor" style="width: 650px; height: 400px"></textarea>
-		<button type="submit" class="btn btn-primary">Post</button>
-	</form> 
+	<div class="container">
+		<div class="col-sm-12">
+			<h1 class="text-center" id="id-newpost-title">New post</h1>
+		</div>
+		<div class="col-sm-8 col-sm-offset-2">
+			<form method="post" action="newPostServlet">
+				<div class="row form-group">
+					<input type="text" class="form-control" id="id-post-title"
+						placeholder="Title" name="post-title" />
+				</div>
+				<div class="row form-group">
+					<textarea id="id-editor" name="editor" style="width: 100%; height: 100%"></textarea>
+				</div>
+				<div class="row form-group" id="id-newpost-button">
+					<button type="submit" class="btn btn-primary">Sign up!</button>
+				</div>
+			</form>
+		</div>
+	</div>
 	
 	<!-- Bootstrap JavaSrcipt resources -->
 	<script src="js/jQuery.min.js"></script>

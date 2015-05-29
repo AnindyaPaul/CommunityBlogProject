@@ -68,6 +68,15 @@
 		<url-pattern>/newpost</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>postURL</servlet-name>
+		<jsp-file>/post.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>postURL</servlet-name>
+		<url-pattern>/post</url-pattern>
+	</servlet-mapping>
+	
 	<!-- TinyFCK integration -->
 	<servlet>
 	    <servlet-name>Connector</servlet-name>

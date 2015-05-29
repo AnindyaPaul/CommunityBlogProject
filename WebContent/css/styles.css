@@ -7,6 +7,15 @@ body {
 	margin: 0px;
 }
 
+.footer {
+	margin-top: 2%;
+    padding: 2% 0%;
+    color: #999;
+    text-align: center;
+    background-color: #F9F9F9;
+    border-top: 1px solid #E5E5E5;
+}
+
 .sidebar-module {
 	margin-top: 10%;
 }
@@ -29,6 +38,11 @@ body {
 }
 
 #id-profile-title {
+	margin: 3%;
+	margin-top: 3%;
+}
+
+#id-newpost-title {
 	margin: 3%;
 	margin-top: 3%;
 }
