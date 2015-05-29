@@ -1,10 +1,12 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.communityblogproject.*" %>
 
 <%
 	jdbc jdbcObj = new jdbc();
 	Post post = jdbcObj.getPostById(request.getParameter("postID"));
-	User author = jdbcObj.getUserbyId(post.getAuthorId());
+	User postAuthor = jdbcObj.getUserbyId(post.getAuthorId());
+	ArrayList<Comment> commentList = jdbcObj.getAllComment(post.getId());
 %>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@
 				<div class="blog-post text-justify">
 					<h2 class="blog-post-title"><%= post.getTitle() %></h2>
 					<p class="blog-post-meta">
-						<%= post.getDate() %> by <a href="profile?userID=<%= author.getUserId() %>"><%= author.getUserName() %></a>
+						<%= post.getDate() %> by <a href="profile?userID=<%= postAuthor.getUserId() %>"><%= postAuthor.getUserName() %></a>
 						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> <%= post.getUpvote() %>
 						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> <%= post.getDownvote() %>
 					</p>
@@ -40,30 +42,32 @@
 				<hr />
 				
 				<h3 id="id-comment-title">Comments</h3>
-				
+				<%
+				for(int i = 0; i < commentList.size(); i++) {
+					Comment comment = commentList.get(i);
+					User commentAuthor = jdbcObj.getUserbyId(comment.getAuthorId());
+				%>
 				<div class="comment">
 					<p class="blog-post-meta">
-						<a href="#">Anindya</a> on January 1, 2014
+						<a href="profile?userID=<%= commentAuthor.getUserId() %>"><%= commentAuthor.getUserName() %></a> on <%= comment.getDate() %>
 					</p>
-					Great article brother!
+					<%= comment.getText() %>
 				</div>
-				<div class="comment">
-					<p class="blog-post-meta">
-						<a href="#">Anindya</a> on January 1, 2014
-					</p>
-					Great article brother!
-				</div>
+				<% } %>
 				
+				<% if(loggedInUser != null) { %>
 				<div class="comment comment-form">
-					<form class="form-horizontal" action="commentServlet" method="post">
+					<form class="form-horizontal" action="pushCommentServlet" method="post">
 						<div class="form-group comment-form">
-							<input type="text" class="form-control" placeholder="Enter your comment" name="comment" />
+							<input type="text" class="form-control" placeholder="Enter your comment" name="commentContent" />
+							<input type="hidden" name="postID" value="<%= post.getId() %>" />
 						</div>
 						<div class="form-group comment-form">
 							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
 					</form>
 				</div>
+				<% } %>
 				<!-- /Comments section -->
 				
 			</div>

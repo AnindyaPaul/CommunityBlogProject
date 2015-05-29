@@ -80,16 +80,16 @@
 			<h1 class="text-center" id="id-newpost-title">New post</h1>
 		</div>
 		<div class="col-sm-8 col-sm-offset-2">
-			<form method="post" action="newPostServlet">
+			<form method="post" action="pushPostServlet">
 				<div class="row form-group">
 					<input type="text" class="form-control" id="id-post-title"
-						placeholder="Title" name="post-title" />
+						placeholder="Title" name="postTitle" />
 				</div>
 				<div class="row form-group">
-					<textarea id="id-editor" name="editor" style="width: 100%; height: 100%"></textarea>
+					<textarea id="id-editor" name="postContent" style="width: 100%; height: 100%"></textarea>
 				</div>
 				<div class="row form-group" id="id-newpost-button">
-					<button type="submit" class="btn btn-primary">Sign up!</button>
+					<button type="submit" class="btn btn-primary">Post!</button>
 				</div>
 			</form>
 		</div>
