@@ -97,7 +97,7 @@ public class jdbc {
 			return ret;
 		}
 	}
-	public ArrayList<Post> getPost()
+	public ArrayList<Post> getAllPost()
 	{
 		ArrayList<Post> ret=new ArrayList<Post>();
 		try{

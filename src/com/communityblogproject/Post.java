@@ -1,7 +1,7 @@
 package com.communityblogproject;
-import java.util.*;
+
 public class Post extends Content{
-	String authorId;
+	String authorId,date;
 	int views,upvote,downvote;
 	String text;
 	public String getText() {
@@ -10,11 +10,15 @@ public class Post extends Content{
 	public void setText(String text) {
 		this.text = text;
 	}
-	Date date_time;
-	jdbc data;
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	Post()
 	{
-		data=new jdbc();
+		
 	}
 	public String getAuthorId() {
 		return authorId;
@@ -39,11 +43,5 @@ public class Post extends Content{
 	}
 	public void setDownvote(int downvote) {
 		this.downvote = downvote;
-	}
-	public Date getDate_time() {
-		return date_time;
-	}
-	public void setDate_time(Date date_time) {
-		this.date_time = date_time;
 	}
 }	

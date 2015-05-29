@@ -5,7 +5,7 @@
 <%
 
 	jdbc jdbcObj = new jdbc();
-	ArrayList<Post> postList = jdbcObj.getPost();
+	ArrayList<Post> postList = jdbcObj.getAllPost();
 
 %>
 
@@ -35,7 +35,7 @@
 				%>
 					<h2 class="blog-post-title"><a href="post?postID=<%= post.getId() %>"><%= post.getTitle() %></a></h2>
 					<p class="blog-post-meta">
-						<%= post.getDate_time() %> by <a href="#"><%= post.getAuthorId() %></a>
+						<%= post.getDate() %> by <a href="#"><%= post.getAuthorId() %></a>
 						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> <%= post.getUpvote() %>
 						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> <%= post.getDownvote() %>
 					</p>
