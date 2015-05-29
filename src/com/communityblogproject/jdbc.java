@@ -15,7 +15,7 @@ public class jdbc {
 	private String password="12345";
 	private String driver="com.mysql.jdbc.Driver";
 	private String sql=null;
-	
+
 	public jdbc()
 	{
 		try{
@@ -26,7 +26,7 @@ public class jdbc {
 			System.out.println(e);
 		}
 	}
-	void newRow(String table, String attribute, String value)
+	public void newRow(String table, String attribute, String value)
 	{
 		try{
 		sql="INSERT INTO "+table+" ("+attribute+") VALUES (\'"+value+"\')";
@@ -36,7 +36,7 @@ public class jdbc {
 		System.out.println(e);
 		}
 	}
-	void setValue(String table,String p_key,String p_key_val,String attribute,String value)
+	public void setValue(String table,String p_key,String p_key_val,String attribute,String value)
 	{
 		try{
 		sql="UPDATE "+table+" SET "+attribute+" = \'"+value+"\' where "+p_key+" = \'"+p_key_val+"\' ";
@@ -46,7 +46,7 @@ public class jdbc {
 		System.out.println(e);
 		}
 	}
-	void setDate(String table,String p_key,String p_key_val,String attribute,String value)
+	public void setDate(String table,String p_key,String p_key_val,String attribute,String value)
 	{
 		String new_val="";
 		String dd=value.substring(0,2);
@@ -55,7 +55,7 @@ public class jdbc {
 		new_val+=(yy+"-"+mm+"-"+dd);
 		setValue(table,p_key,p_key_val,attribute,new_val);
 	}
-	int countRow(String table)
+	public int countRow(String table)
 	{
 		int ret=0;
 		try{
@@ -70,7 +70,7 @@ public class jdbc {
 			return ret;
 		}
 	}
-	ArrayList<String> query(String table,String required_attribute,String match_attribute,String value){
+	public ArrayList<String> query(String table,String required_attribute,String match_attribute,String value){
 		ArrayList<String>ret=new ArrayList<String>();
 		try{
 		sql="SELECT "+required_attribute+" from "+table+" where "+match_attribute+" =\'"+value+"\'";
@@ -82,13 +82,14 @@ public class jdbc {
 				if(result.next()){
 				{
 					//System.out.println(result.getString(i+1));
+					if(table.equals("user"))
 					while(i<=9)
 					ret.add((String)result.getString(i++));
 					//System.out.println("Index "+i);
 				}
 			}
 		}
-		else if(result.next()==true){
+		else while(result.next()==true){
 			ret.add((String)result.getString(required_attribute));
 		}
 		}catch(Exception e){
@@ -110,7 +111,13 @@ public class jdbc {
 				temp.setTitle(result.getString(2));
 				temp.setText(result.getString(3));
 				temp.setAuthorId(result.getString(4));
-				//temp.setId(result.getString(5));
+				String value=result.getString(5);
+				String date="";
+				String dd=value.substring(8,10);
+				String mm=value.substring(5,7);
+				String yy=value.substring(0,4);
+				date+=(dd+"-"+mm+"-"+yy);
+				temp.setDate(date);
 				temp.setUpvote(Integer.parseInt(result.getString(6)));
 				temp.setDownvote(Integer.parseInt(result.getString(7)));
 				temp.setViews(Integer.parseInt(result.getString(8)));
@@ -121,8 +128,138 @@ public class jdbc {
 		}finally{
 			return ret;
 		}
-				
-			
+	}
+	public ArrayList<Post> getPostByTag(String value){
+		ArrayList<Post> ret=new ArrayList<Post>();
+		try{
+			ArrayList<String>requiredId=query("posttagrelation","postID","tagID",value);
+			int i;
+			for(i=0;i<requiredId.size();i++)
+			{
+				sql="SELECT * from post where postID=\'"+requiredId.get(i)+"\'";
+				statement=connect.createStatement();
+				result=statement.executeQuery(sql);
+				while(result.next()){
+					Post temp=new Post();
+					temp.setId(result.getString(1));
+					temp.setTitle(result.getString(2));
+					temp.setText(result.getString(3));
+					temp.setAuthorId(result.getString(4));
+					String date="";
+					String dd=value.substring(8,10);
+					String mm=value.substring(5,7);
+					String yy=value.substring(0,4);
+					date+=(dd+"-"+mm+"-"+yy);
+					temp.setDate(date);
+					temp.setUpvote(Integer.parseInt(result.getString(6)));
+					temp.setDownvote(Integer.parseInt(result.getString(7)));
+					temp.setViews(Integer.parseInt(result.getString(8)));
+					ret.add(temp);
+				}
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+
+	}
+
+	public ArrayList<Post> getPostByCategory(String value)
+	{
+		ArrayList<Post> ret=new ArrayList<Post>();
+		try{
+			ArrayList<String>requiredId=query("postcategoryrelation","postID","categoryID",value);
+			int i;
+			for(i=0;i<requiredId.size();i++)
+			{
+				sql="SELECT * from post where postID=\'"+requiredId.get(i)+"\'";
+				statement=connect.createStatement();
+				result=statement.executeQuery(sql);
+				while(result.next()){
+					Post temp=new Post();
+					temp.setId(result.getString(1));
+					temp.setTitle(result.getString(2));
+					temp.setText(result.getString(3));
+					temp.setAuthorId(result.getString(4));
+					String date="";
+					String dd=value.substring(8,10);
+					String mm=value.substring(5,7);
+					String yy=value.substring(0,4);
+					date+=(dd+"-"+mm+"-"+yy);
+					temp.setDate(date);
+					temp.setUpvote(Integer.parseInt(result.getString(6)));
+					temp.setDownvote(Integer.parseInt(result.getString(7)));
+					temp.setViews(Integer.parseInt(result.getString(8)));
+					ret.add(temp);
+				}
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
+
+	public ArrayList<Post> getPostByAuthor(String value)
+	{
+		ArrayList<Post> ret=new ArrayList<Post>();
+		try{
+			sql="SELECT * from post where postAuthor=\'"+value+"\'";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			while(result.next()){
+				Post temp=new Post();
+				temp.setId(result.getString(1));
+				temp.setTitle(result.getString(2));
+				temp.setText(result.getString(3));
+				temp.setAuthorId(result.getString(4));
+				String date="";
+				String dd=value.substring(8,10);
+				String mm=value.substring(5,7);
+				String yy=value.substring(0,4);
+				date+=(dd+"-"+mm+"-"+yy);
+				temp.setDate(date);
+				temp.setUpvote(Integer.parseInt(result.getString(6)));
+				temp.setDownvote(Integer.parseInt(result.getString(7)));
+				temp.setViews(Integer.parseInt(result.getString(8)));
+				ret.add(temp);
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
+	public ArrayList<Post> getPostById(String value)
+	{
+		ArrayList<Post> ret=new ArrayList<Post>();
+		try{
+			sql="SELECT * from post where postID=\'"+value+"\'";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			while(result.next()){
+				Post temp=new Post();
+				temp.setId(result.getString(1));
+				temp.setTitle(result.getString(2));
+				temp.setText(result.getString(3));
+				temp.setAuthorId(result.getString(4));
+				String date="";
+				String dd=value.substring(8,10);
+				String mm=value.substring(5,7);
+				String yy=value.substring(0,4);
+				date+=(dd+"-"+mm+"-"+yy);
+				temp.setDate(date);
+				temp.setUpvote(Integer.parseInt(result.getString(6)));
+				temp.setDownvote(Integer.parseInt(result.getString(7)));
+				temp.setViews(Integer.parseInt(result.getString(8)));
+				ret.add(temp);
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
 	}
 	public void close() {
 	    try {
