@@ -45,6 +45,15 @@ public class jdbc {
 		System.out.println(e);
 		}
 	}
+	void setDate(String table,String p_key,String p_key_val,String attribute,String value)
+	{
+		String new_val="";
+		String dd=value.substring(0,2);
+		String mm=value.substring(3,5);
+		String yy=value.substring(6);
+		new_val+=(yy+"-"+mm+"-"+dd);
+		setValue(table,p_key,p_key_val,attribute,new_val);
+	}
 	int countRow(String table)
 	{
 		int ret=0;
