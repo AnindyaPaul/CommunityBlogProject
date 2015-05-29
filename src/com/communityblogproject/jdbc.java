@@ -145,6 +145,7 @@ public class jdbc {
 					temp.setTitle(result.getString(2));
 					temp.setText(result.getString(3));
 					temp.setAuthorId(result.getString(4));
+					value=result.getString(5);
 					String date="";
 					String dd=value.substring(8,10);
 					String mm=value.substring(5,7);
@@ -182,6 +183,7 @@ public class jdbc {
 					temp.setTitle(result.getString(2));
 					temp.setText(result.getString(3));
 					temp.setAuthorId(result.getString(4));
+					value=result.getString(5);
 					String date="";
 					String dd=value.substring(8,10);
 					String mm=value.substring(5,7);
@@ -214,6 +216,7 @@ public class jdbc {
 				temp.setTitle(result.getString(2));
 				temp.setText(result.getString(3));
 				temp.setAuthorId(result.getString(4));
+				value=result.getString(5);
 				String date="";
 				String dd=value.substring(8,10);
 				String mm=value.substring(5,7);
@@ -244,6 +247,7 @@ public class jdbc {
 				temp.setTitle(result.getString(2));
 				temp.setText(result.getString(3));
 				temp.setAuthorId(result.getString(4));
+				value=result.getString(5);
 				String date="";
 				String dd=value.substring(8,10);
 				String mm=value.substring(5,7);
@@ -253,6 +257,36 @@ public class jdbc {
 				temp.setUpvote(Integer.parseInt(result.getString(6)));
 				temp.setDownvote(Integer.parseInt(result.getString(7)));
 				temp.setViews(Integer.parseInt(result.getString(8)));
+				ret=temp;
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
+	public User getUserbyId(String value){
+		User ret=new User();
+		try{
+			sql="SELECT * from user where UserId=\'"+value+"\'";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			if(result.next()){
+				User temp=new User();
+				temp.setUserId(result.getString(1));
+				temp.setUserName(result.getString(2));
+				value=result.getString(3);
+				String date="";
+				String dd=value.substring(8,10);
+				String mm=value.substring(5,7);
+				String yy=value.substring(0,4);
+				date+=(dd+"-"+mm+"-"+yy);
+				temp.setUserDOB(date);
+				temp.setUserBio(result.getString(4));
+				temp.setUserReputation(result.getString(5));
+				temp.setUserPassword(result.getString(6));
+				temp.setUserRole(result.getString(7));
+				temp.setUserEmail(result.getString(9));
 				ret=temp;
 			}
 		}catch(Exception e){
