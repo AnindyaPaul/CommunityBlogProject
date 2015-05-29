@@ -1,6 +1,10 @@
 <%@ page import="com.communityblogproject.*" %>
 
-<% User loggedInUser = (User) session.getAttribute("User"); %>
+<%
+
+	User loggedInUser = (User) session.getAttribute("User");
+
+%>
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default">
@@ -32,7 +36,7 @@
 					</ul>
 				</li>
 				<% if(loggedInUser != null) { %>
-				<li><a href="profile"><%= loggedInUser.getUserName() %></a></li>
+				<li><a href="profile?userID=<%= loggedInUser.getUserId() %>"><%= loggedInUser.getUserName() %></a></li>
 				<% } %>
 				<% if(loggedInUser == null) { %>
 				<li><a href="#" data-toggle="modal" data-target="#id-signin-form">Sign in</a></li>

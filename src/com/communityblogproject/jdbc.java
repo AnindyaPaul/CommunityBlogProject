@@ -16,7 +16,7 @@ public class jdbc {
 	private String driver="com.mysql.jdbc.Driver";
 	private String sql=null;
 	
-	jdbc()
+	public jdbc()
 	{
 		try{
 		Class.forName(driver);
@@ -97,7 +97,7 @@ public class jdbc {
 			return ret;
 		}
 	}
-	ArrayList<Post> getPost()
+	public ArrayList<Post> getPost()
 	{
 		ArrayList<Post> ret=new ArrayList<Post>();
 		try{
