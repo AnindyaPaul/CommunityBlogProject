@@ -58,6 +58,15 @@
     <url-pattern>/followServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>unfollowServlet</servlet-name>
+    <servlet-class>com.communityblogproject.UnfollowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>unfollowServlet</servlet-name>
+    <url-pattern>/unfollowServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>homeURL</servlet-name>
     <jsp-file>/index.jsp</jsp-file>
   </servlet>

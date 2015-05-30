@@ -62,21 +62,24 @@
 							<button type="submit" class="btn btn-primary">Edit</button>
 						</form>
 						<% } else if(loggedInUser != null) { %>
-						<form action="followServlet" method="post">
+						
 							<%
 							if(jdbcObj.checkFollow(loggedInUser.getUserId(), user.getUserId())) {
 							%>
-								<button type="submit" class="btn btn-primary"
-								disabled="disabled">Following</button>
+							<form action="followServlet" method="post">
+								<button type="submit" class="btn btn-primary">Unfollow</button>
+								<input type="hidden" name="unfollowID" value="<%= user.getUserId() %>" />
+							</form>
 							<%
 							} else {
 							%>
+							<form action="unfollowServlet" method="post">
 								<button type="submit" class="btn btn-primary">Follow</button>
+								<input type="hidden" name="unfollowID" value="<%= user.getUserId() %>" />
+							</form>
 							<%
 							}
 							%>
-							<input type="hidden" name="followID" value="<%= user.getUserId() %>" />
-						</form>
 						<% } %>
 					</div>
 				</div>
@@ -119,7 +122,7 @@
 						for(int i = 0; i < followers.size(); i++) {
 							User tmp = followers.get(i);
 						%>
-						<p>
+						<p class="follow-list">
 							<a href="profile?userID=<%= tmp.getUserId() %>"><%= tmp.getUserName() %></a>
 						</p>
 						<%
@@ -131,7 +134,7 @@
 						for(int i = 0; i < following.size(); i++) {
 							User tmp = following.get(i);
 						%>
-						<p>
+						<p class="follow-list">
 							<a href="profile?userID=<%= tmp.getUserId() %>"><%= tmp.getUserName() %></a>
 						</p>
 						<%
