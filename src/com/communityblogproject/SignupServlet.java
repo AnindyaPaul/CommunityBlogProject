@@ -21,7 +21,8 @@ public class SignupServlet extends HttpServlet {
 		System.out.println(UserEmail);
 		System.out.println(UserPassword);
 		jdbc data=new jdbc();
-		int new_id=IdInfo.userId;
+		int new_id=data.countRow("user");
+		new_id++;
 		data.newRow("user", "UserId",""+new_id);
 		data.setValue("user","UserId",""+new_id,"UserName",UserName);
 		data.setValue("user","UserId",""+new_id,"UserEmail",UserEmail);

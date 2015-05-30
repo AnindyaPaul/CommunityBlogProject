@@ -28,7 +28,8 @@ public class PushPostServlet extends HttpServlet {
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = formatter.format(date);
 		jdbc data=new jdbc();
-		int new_id=IdInfo.postId;
+		int new_id=data.countRow("user");
+		new_id++;
 		data.newRow("post", "postID",""+new_id);
 		data.setValue("post","postID",""+new_id,"postTitle",postTitle);
 		data.setValue("post","postID",""+new_id,"postContent",postContent);
