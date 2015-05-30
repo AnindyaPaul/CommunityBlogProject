@@ -28,7 +28,7 @@ public class EditProfileServlet extends HttpServlet {
 		data.setValue("user","UserId",User_id,"UserEmail",UserEmail);
 		data.setValue("user","UserId",User_id,"UserPassword",UserPassword);
 		data.setDate("user","UserId",User_id,"UserDOB",UserDOB);
-		data.setValue("user","UserId",User_id,"UserBio","");
+		data.setValue("user","UserId",User_id,"UserBio",UserBio);
 		data.setValue("user","UserId",User_id,"UserReputation","0");
 		user.setUserBio(UserBio);
 		user.setUserReputation("0");
@@ -36,6 +36,8 @@ public class EditProfileServlet extends HttpServlet {
 		user.setUserEmail(UserEmail);
 		user.setUserPassword(UserPassword);
 		request.getSession().setAttribute("User", user);
+		data.close();
+		response.sendRedirect("home");
 	}
 
 }

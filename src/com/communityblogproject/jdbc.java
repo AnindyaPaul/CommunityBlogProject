@@ -127,7 +127,7 @@ public class jdbc {
 	{
 		ArrayList<Post> ret=new ArrayList<Post>();
 		try{
-			sql="SELECT * from post";
+			sql="SELECT * from post order by postID desc";
 			statement=connect.createStatement();
 			result=statement.executeQuery(sql);
 			while(result.next()){
