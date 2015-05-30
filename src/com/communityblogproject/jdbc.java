@@ -57,9 +57,22 @@ public class jdbc {
 			
 			statement=connect.createStatement();
 			statement.executeUpdate(sql);
-			}catch(Exception e){
-			System.out.println(e);
-			}
+		}catch(Exception e){
+		System.out.println(e);
+		}
+	}
+	public void deletePost(String value)
+	{
+		try{
+			sql="DELETE from comment where commentPostID=\'"+value+"\'";
+			statement=connect.createStatement();
+			statement.executeUpdate(sql);
+			sql="DELETE from post where postID=\'"+value+"\'";
+			statement=connect.createStatement();
+			statement.executeUpdate(sql);
+		}catch(Exception e){
+		System.out.println(e);
+		}
 	}
 	public void setValue(String table,String p_key,String p_key_val,String attribute,String value)
 	{
