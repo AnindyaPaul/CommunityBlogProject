@@ -134,6 +134,38 @@ public class jdbc {
 			return ret;
 		}
 	}
+	public String getMaxUserId()
+	{
+		String ret="0";
+		try{
+			sql="SELECT MAX(UserId) from user";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			if(result.next()){
+				ret=result.getString(1);
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
+	public String getMaxCommentId()
+	{
+		String ret="0";
+		try{
+			sql="SELECT MAX(commentID) from comment";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			if(result.next()){
+				ret=result.getString(1);
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
 	public ArrayList<Post> getAllPost()
 	{
 		ArrayList<Post> ret=new ArrayList<Post>();
