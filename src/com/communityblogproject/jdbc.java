@@ -50,6 +50,16 @@ public class jdbc {
 			System.out.println(e);
 			}
 	}
+	public void deleteFollowRow(String value1,String value2)
+	{
+		try{
+			sql="DELETE from follow where userID=\'"+value1+"\',\' and followingID="+value2+"\')";
+			statement=connect.createStatement();
+			statement.executeUpdate(sql);
+			}catch(Exception e){
+			System.out.println(e);
+			}
+	}
 	public void setValue(String table,String p_key,String p_key_val,String attribute,String value)
 	{
 		try{

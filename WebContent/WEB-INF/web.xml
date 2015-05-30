@@ -57,7 +57,6 @@
     <servlet-name>followServlet</servlet-name>
     <url-pattern>/followServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>homeURL</servlet-name>
     <jsp-file>/index.jsp</jsp-file>
