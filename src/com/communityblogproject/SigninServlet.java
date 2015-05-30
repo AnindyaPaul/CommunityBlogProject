@@ -41,7 +41,6 @@ public class SigninServlet extends HttpServlet {
 			user.setUserReputation(reputation);
 			request.getSession().setAttribute("User", user);
 		}
-		System.out.println(data.countRow("user"));
 		System.out.println(email);
 		System.out.println(password);
 		response.sendRedirect("home");
