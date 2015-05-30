@@ -111,9 +111,6 @@ public class jdbc {
 					ret.add((String)result.getString(i++));
 					//System.out.println("Index "+i);
 				}
-				else{
-					ret.add("");
-				}
 		}
 		else while(result.next()==true){
 			ret.add((String)result.getString(required_attribute));
