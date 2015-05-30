@@ -15,7 +15,8 @@ public class SigninServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		jdbc data=new jdbc();
-		if(password.equals(data.query("user","UserPassword","UserEmail",email).size()>0 && password.equals(data.query("user","UserPassword","UserEmail",email).get(0))))
+		ArrayList<String> check=data.query("user","UserPassword","UserEmail",email);
+		if(check.size()>0 && password.equals(check.get(0)))
 		{
 			System.out.println("Matched");
 			String id=data.query("user","UserId","UserEmail",email).get(0);
