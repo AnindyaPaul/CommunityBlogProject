@@ -7,6 +7,8 @@
 	jdbc jdbcObj = new jdbc();
 	User user = jdbcObj.getUserbyId(request.getParameter("userID"));
 	ArrayList<Post> postList = jdbcObj.getPostByAuthor(user.getUserId());
+	ArrayList<User> followers = jdbcObj.getFollowers(user.getUserId());
+	ArrayList<User> following = jdbcObj.getFollowing(user.getUserId());
 
 %>
 
@@ -54,6 +56,29 @@
 						<label for="id-user-reputation" class="col-sm-3 text-right">Reputation</label>
 						<div class="col-sm-9 text-left" id="id-user-reputation"><%= user.getUserReputation() %></div>
 					</div>
+					<div class="col-sm-3 text-right">
+						<% if(loggedInUser != null && user.getUserId().equals(loggedInUser.getUserId())) { %>
+						<form action="editProfile" method="post">
+							<button type="submit" class="btn btn-primary">Edit</button>
+						</form>
+						<% } else if(loggedInUser != null) { %>
+						<form action="followServlet" method="post">
+							<%
+							if(jdbcObj.checkFollow(loggedInUser.getUserId(), user.getUserId())) {
+							%>
+								<button type="submit" class="btn btn-primary"
+								disabled="disabled">Following</button>
+							<%
+							} else {
+							%>
+								<button type="submit" class="btn btn-primary">Follow</button>
+							<%
+							}
+							%>
+							<input type="hidden" name="followID" value="<%= user.getUserId() %>" />
+						</form>
+						<% } %>
+					</div>
 				</div>
 				
 				<div class="col-sm-4 col-sm-offset-1">
@@ -89,8 +114,30 @@
 						%>
 						</div>
 					</div>
-					<div role="tabpanel" class="tab-pane" id="id-followers">...</div>
-					<div role="tabpanel" class="tab-pane" id="id-following">...</div>
+					<div role="tabpanel" class="tab-pane" id="id-followers">
+						<%
+						for(int i = 0; i < followers.size(); i++) {
+							User tmp = followers.get(i);
+						%>
+						<p>
+							<a href="profile?userID=<%= tmp.getUserId() %>"><%= tmp.getUserName() %></a>
+						</p>
+						<%
+						}
+						%>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="id-following">
+						<%
+						for(int i = 0; i < following.size(); i++) {
+							User tmp = following.get(i);
+						%>
+						<p>
+							<a href="profile?userID=<%= tmp.getUserId() %>"><%= tmp.getUserName() %></a>
+						</p>
+						<%
+						}
+						%>
+					</div>
 				</div>
 			</div>
 			

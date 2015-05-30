@@ -49,6 +49,14 @@
     <servlet-name>pushCommentServlet</servlet-name>
     <url-pattern>/pushCommentServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>followServlet</servlet-name>
+    <servlet-class>com.communityblogproject.FollowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>followServlet</servlet-name>
+    <url-pattern>/followServlet</url-pattern>
+  </servlet-mapping>
 
   <servlet>
     <servlet-name>homeURL</servlet-name>
