@@ -21,8 +21,7 @@ public class SignupServlet extends HttpServlet {
 		System.out.println(UserEmail);
 		System.out.println(UserPassword);
 		jdbc data=new jdbc();
-		int new_id=data.countRow("user");
-		new_id++;
+		int new_id=IdInfo.userId;
 		data.newRow("user", "UserId",""+new_id);
 		data.setValue("user","UserId",""+new_id,"UserName",UserName);
 		data.setValue("user","UserId",""+new_id,"UserEmail",UserEmail);
@@ -38,6 +37,7 @@ public class SignupServlet extends HttpServlet {
 		user.setUserEmail(UserEmail);
 		user.setUserPassword(UserPassword);
 		request.getSession().setAttribute("User", user);
+		IdInfo.userId++;
 		data.close();
 		response.sendRedirect("home");
 	}

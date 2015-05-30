@@ -24,8 +24,7 @@ public class PushCommentServlet extends HttpServlet {
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = formatter.format(date);
 		jdbc data=new jdbc();
-		int new_id=data.countRow("comment");
-		new_id++;
+		int new_id=IdInfo.commentId;
 		data.newRow("comment", "commentID",""+new_id);
 		data.setValue("comment","commentID",""+new_id,"commentAuthorID",authorID);
 		data.setValue("comment","commentID",""+new_id,"commentContent",commentContent);
@@ -34,6 +33,7 @@ public class PushCommentServlet extends HttpServlet {
 		data.setValue("comment","commentID",""+new_id,"commentDownVote",commentDownvote);
 		data.setValue("comment","commentID",""+new_id,"commentPostID",postID);
 		data.close();
+		IdInfo.commentId++;
 		response.sendRedirect("home");
 	}
 
