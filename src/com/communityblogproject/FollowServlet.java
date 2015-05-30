@@ -15,6 +15,7 @@ public class FollowServlet extends HttpServlet {
 		String followId=request.getParameter("followID");
 		jdbc data=new jdbc();
 		data.newFollowRow(UserId,followId);
+		response.sendRedirect("home");
 		data.close();
 	}
 
