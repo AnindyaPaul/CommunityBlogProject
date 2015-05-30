@@ -105,14 +105,15 @@ public class jdbc {
 		if(required_attribute.equals("*")==true)
 		{
 				if(result.next()){
-				{
 					//System.out.println(result.getString(i+1));
 					if(table.equals("user"))
 					while(i<=9)
 					ret.add((String)result.getString(i++));
 					//System.out.println("Index "+i);
 				}
-			}
+				else{
+					ret.add("");
+				}
 		}
 		else while(result.next()==true){
 			ret.add((String)result.getString(required_attribute));
