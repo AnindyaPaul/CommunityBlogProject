@@ -474,6 +474,22 @@ public class jdbc {
 			return path;
 		}
 	}
+	public boolean checkFollow(String id1,String id2)
+	{
+		boolean ret=false;
+		try{	
+			sql="SELECT * from follow where userID=\'"+id1+"\' and followingID=\'"+id2+"\'";
+			statement=connect.createStatement();
+			result=statement.executeQuery(sql);
+			if(result.next()){
+				ret=true;	
+			}
+		}catch(Exception e){
+		System.out.println(e);
+		}finally{
+			return ret;
+		}
+	}
 	public void close() {
 	    try {
 	      if (result != null) {
