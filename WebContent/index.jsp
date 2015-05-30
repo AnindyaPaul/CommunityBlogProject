@@ -39,7 +39,14 @@
 						<%= post.getDate() %> by <a href="profile?userID=<%= author.getUserId() %>"><%= author.getUserName() %></a>
 						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> <%= post.getUpvote() %>
 						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> <%= post.getDownvote() %>
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <%= post.getViews() %>
 					</p>
+					<p> <%
+						String text = post.getText();
+						for(int j = 0; j < text.length() && j < 500; j++) {
+							out.print(text.charAt(j));
+						}
+					%> </p>
 				<%
 				}
 				%>

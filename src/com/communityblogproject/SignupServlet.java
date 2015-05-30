@@ -1,6 +1,7 @@
 package com.communityblogproject;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,9 @@ public class SignupServlet extends HttpServlet {
 		System.out.println(UserEmail);
 		System.out.println(UserPassword);
 		jdbc data=new jdbc();
-		int new_id=IdInfo.userId;
+		int new_id=data.countRow("user");
+		new_id++;
+		System.out.println("User id = "+new_id);
 		data.newRow("user", "UserId",""+new_id);
 		data.setValue("user","UserId",""+new_id,"UserName",UserName);
 		data.setValue("user","UserId",""+new_id,"UserEmail",UserEmail);
@@ -38,6 +41,7 @@ public class SignupServlet extends HttpServlet {
 		user.setUserPassword(UserPassword);
 		request.getSession().setAttribute("User", user);
 		IdInfo.userId++;
+		System.out.println("User id = "+IdInfo.postId);
 		data.close();
 		response.sendRedirect("home");
 	}

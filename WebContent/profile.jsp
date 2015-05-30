@@ -85,7 +85,7 @@
 				</div>
 				
 				<div class="col-sm-4 col-sm-offset-1">
-					<img src="http://placekitten.com/700/700" class="img-responsive profile-picture"></img>
+					<img src="images/avatar.png" class="img-responsive profile-picture"></img>
 				</div>
 			</div>
 			<hr />

@@ -21,5 +21,6 @@ public class IdInfo {
 		id=data.getMaxUserId();
 		userId=Integer.parseInt(id);
 		userId++;
+		System.out.println(userId + " " + postId + " " + commentId);
 	}
 }

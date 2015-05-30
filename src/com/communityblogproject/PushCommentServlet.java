@@ -24,7 +24,8 @@ public class PushCommentServlet extends HttpServlet {
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = formatter.format(date);
 		jdbc data=new jdbc();
-		int new_id=IdInfo.commentId;
+		int new_id=data.countRow("comment");
+		new_id++;
 		data.newRow("comment", "commentID",""+new_id);
 		data.setValue("comment","commentID",""+new_id,"commentAuthorID",authorID);
 		data.setValue("comment","commentID",""+new_id,"commentContent",commentContent);

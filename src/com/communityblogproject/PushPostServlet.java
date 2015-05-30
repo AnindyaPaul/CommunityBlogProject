@@ -28,7 +28,9 @@ public class PushPostServlet extends HttpServlet {
 		Format formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDate = formatter.format(date);
 		jdbc data=new jdbc();
-		int new_id=IdInfo.postId;
+		int new_id=data.countRow("post");
+		new_id++;
+		System.out.println("Post id = "+new_id);
 		data.newRow("post", "postID",""+new_id);
 		data.setValue("post","postID",""+new_id,"postTitle",postTitle);
 		data.setValue("post","postID",""+new_id,"postContent",postContent);
@@ -39,6 +41,7 @@ public class PushPostServlet extends HttpServlet {
 		data.setValue("post","postID",""+new_id,"postAuthor",authorID);
 		data.close();
 		IdInfo.postId++;
+		System.out.println("Post id = "+IdInfo.postId);
 		response.sendRedirect("home");
 	}
 

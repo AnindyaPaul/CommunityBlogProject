@@ -33,6 +33,7 @@
 						<%= post.getDate() %> by <a href="profile?userID=<%= postAuthor.getUserId() %>"><%= postAuthor.getUserName() %></a>
 						<span class="glyphicon glyphicon-thumbs-up upvote-icon" aria-hidden="true"></span> <%= post.getUpvote() %>
 						<span class="glyphicon glyphicon-thumbs-down downvote-icon" aria-hidden="true"></span> <%= post.getDownvote() %>
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <%= post.getViews() %>
 					</p>
 					<%= post.getText() %>
 				</div>
