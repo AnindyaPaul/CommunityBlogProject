@@ -65,6 +65,14 @@
     <servlet-name>unfollowServlet</servlet-name>
     <url-pattern>/unfollowServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>editProfileServlet</servlet-name>
+    <servlet-class>com.communityblogproject.EditProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editProfileServlet</servlet-name>
+    <url-pattern>/editProfileServlet</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>homeURL</servlet-name>
@@ -106,6 +114,15 @@
     <servlet-name>postURL</servlet-name>
     <url-pattern>/post</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>editProfileURL</servlet-name>
+    <jsp-file>/editProfile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editProfileURL</servlet-name>
+    <url-pattern>/editProfile</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>commentServlet</servlet-name>
     <servlet-class>com.communityblogproject.CommentServlet</servlet-class>

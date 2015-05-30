@@ -58,7 +58,6 @@
 						<li><a href="#">Election</a></li>
 						<li><a href="#">CSEDU</a></li>
 						<li><a href="#">Barcelona</a></li>
-						<li><a href="#">Khaleda Zia</a></li>
 					</ol>
 				</div>
 				
