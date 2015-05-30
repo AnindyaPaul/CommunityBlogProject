@@ -53,7 +53,7 @@ public class jdbc {
 	public void deleteFollowRow(String value1,String value2)
 	{
 		try{
-			sql="DELETE from follow where userID=\'"+value1+"\',\' and followingID="+value2+"\')";
+			sql="DELETE from follow where userID=\'"+value1+"\',\' and followingID=\'"+value2+"\')";
 			
 			statement=connect.createStatement();
 			statement.executeUpdate(sql);
