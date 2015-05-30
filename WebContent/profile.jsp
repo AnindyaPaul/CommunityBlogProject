@@ -66,16 +66,16 @@
 							<%
 							if(jdbcObj.checkFollow(loggedInUser.getUserId(), user.getUserId())) {
 							%>
-							<form action="followServlet" method="post">
-								<button type="submit" class="btn btn-primary">Unfollow</button>
+							<form action="unfollowServlet" method="post">
 								<input type="hidden" name="unfollowID" value="<%= user.getUserId() %>" />
+								<button type="submit" class="btn btn-primary">Unfollow</button>
 							</form>
 							<%
 							} else {
 							%>
-							<form action="unfollowServlet" method="post">
+							<form action="followServlet" method="post">
+								<input type="hidden" name="followID" value="<%= user.getUserId() %>" />
 								<button type="submit" class="btn btn-primary">Follow</button>
-								<input type="hidden" name="unfollowID" value="<%= user.getUserId() %>" />
 							</form>
 							<%
 							}

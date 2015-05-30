@@ -12,6 +12,7 @@ public class UnfollowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		User user=(User)request.getSession().getAttribute("User");
 		String UserId=user.getUserId();
 		String unfollowId=request.getParameter("unfollowID");

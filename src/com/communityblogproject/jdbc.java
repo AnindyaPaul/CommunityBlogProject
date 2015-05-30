@@ -54,6 +54,7 @@ public class jdbc {
 	{
 		try{
 			sql="DELETE from follow where userID=\'"+value1+"\',\' and followingID="+value2+"\')";
+			
 			statement=connect.createStatement();
 			statement.executeUpdate(sql);
 			}catch(Exception e){
