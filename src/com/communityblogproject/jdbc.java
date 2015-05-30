@@ -1,7 +1,11 @@
 package com.communityblogproject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -441,6 +445,33 @@ public class jdbc {
 		System.out.println(e);
 		}finally{
 			return ret;
+		}
+	}
+	String getProfilePicture(String value)
+	{
+		String path="\\temp";
+		path+=value;
+		path+=".jpg";
+		try{
+			String sql = "SELECT profilepicture FROM user where UserID=\'"+value+"\'";
+		    PreparedStatement stmt = connect.prepareStatement(sql);
+		    ResultSet resultSet = stmt.executeQuery();
+		    while (resultSet.next()) {
+		      String name = resultSet.getString(1);
+		      String description = resultSet.getString(2);
+		      File image = new File(path);
+		      FileOutputStream fos = new FileOutputStream(image);
+		      byte[] buffer = new byte[1];
+		      InputStream is = resultSet.getBinaryStream(3);
+		      while (is.read(buffer) > 0) {
+		        fos.write(buffer);
+		      }
+		      fos.close();
+		    }
+		}catch(Exception e){
+			System.out.println(e);
+		}finally{
+			return path;
 		}
 	}
 	public void close() {
