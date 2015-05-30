@@ -70,14 +70,14 @@
 						<label for="id-signup-name" class="col-sm-2 control-label">About</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="id-signup-name"
-								placeholder="Name" name="bio" value="<%= loggedInUser.getUserBio() %>" />
+								placeholder="Bio" name="bio" value="<%= loggedInUser.getUserBio() %>" />
 						</div>
 					</div>
 					
 					<!-- Button -->
 					<div class="form-group" id="id-signup-button">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Sign up!</button>
+							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
 					</div>
 				</form>
