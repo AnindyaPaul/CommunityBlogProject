@@ -24,7 +24,6 @@ public class SignupServlet extends HttpServlet {
 		jdbc data=new jdbc();
 		int new_id=data.countRow("user");
 		new_id++;
-		System.out.println("User id = "+new_id);
 		data.newRow("user", "UserId",""+new_id);
 		data.setValue("user","UserId",""+new_id,"UserName",UserName);
 		data.setValue("user","UserId",""+new_id,"UserEmail",UserEmail);

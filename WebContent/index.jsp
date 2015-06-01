@@ -43,7 +43,7 @@
 					</p>
 					<p> <%
 						String text = post.getText();
-						for(int j = 0; j < text.length() && j < 500; j++) {
+						for(int j = 0; j < text.length() && j < 400; j++) {
 							out.print(text.charAt(j));
 						}
 					%> </p>
