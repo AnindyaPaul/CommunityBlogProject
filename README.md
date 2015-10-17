@@ -2,4 +2,4 @@
 
 Community Blog for sharing thoughts.
 
-[Done as a part of Software Design Pattern course.]
+Done as a project of Software Design Pattern (3-1) course.
