@@ -1,2 +1,5 @@
-# CommunityBlogProject
-This is a community blog project for the Software Design Pattern course.
+# Community Blog
+
+Community Blog for sharing thoughts.
+
+[Done as a part of Software Design Pattern course.]
