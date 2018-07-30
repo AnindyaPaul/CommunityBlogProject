@@ -1,3 +1,5 @@
 # Community Blog [Educational Project]
 
-Community Blog for sharing thoughts.
+- Dynamic content based community blogging platform
+- Social features including upvotes, following etc.
+- Java, JSP, Bootstrap Framework, MySQL, Apache Server
